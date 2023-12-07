@@ -113,21 +113,26 @@ for ut in page_url:
 try:
   create_table = "create table olx_cars (Source varchar(255), Car_names varchar(255), Model_Year varchar(255), Car_price varchar(255), Run_km varchar(255), Car_location varchar(255), Url varchar(1500),Img varchar(1500))"
   cursor.execute(create_table)
-  insert_query = "INSERT INTO olx_cars (Source, Car_Names, Model_Year, Car_price, Run_km, Car_location, Url, Img) VALUES (%s, %s, %s, %s, %s, %s, %s,%s)"
+  insert_query = "INSERT INTO olx_cars (Source, Car_Names, Model_Year, Car_price, Run_km, Car_location, Url) VALUES (%s, %s, %s, %s, %s, %s, %s)"
   data_to_insert = []
   for i in range(len(car_locations)):
-      data_to_insert.append(("olx.com", car_names[i], type1_data[i], car_prices[i], car_runs[i], car_locations[i], url_redirect[i], img_redirect[i]))
+    data_to_insert.append(("olx.com", car_names[i], type1_data[i], car_prices[i], car_runs[i], car_locations[i], url_redirect[i]))
 
   cursor.executemany(insert_query, data_to_insert)
   connection.commit()
 except:
   truncate = "truncate table olx_cars"
   cursor.execute(truncate)
-  insert_query = "INSERT INTO olx_cars (Source, Car_Names, Model_Year, Car_price, Run_km, Car_location, Url, Img) VALUES (%s, %s, %s, %s, %s, %s, %s,%s)"
+  insert_query = "INSERT INTO olx_cars (Source, Car_Names, Model_Year, Car_price, Run_km, Car_location, Url) VALUES (%s, %s, %s, %s, %s, %s, %s)"
   data_to_insert = []
   for i in range(len(car_locations)):
-      data_to_insert.append(("olx.com", car_names[i], type1_data[i], car_prices[i], car_runs[i], car_locations[i], url_redirect[i], img_redirect[i]))
+    data_to_insert.append(("olx.com", car_names[i], type1_data[i], car_prices[i], car_runs[i], car_locations[i], url_redirect[i]))
+
   cursor.executemany(insert_query, data_to_insert)
   connection.commit()
+print("Data inserted successfully")
 
 driver.quit()
+
+
+
