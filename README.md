@@ -4,12 +4,28 @@ Hi everyone I am Nitish Khanna .This is a small project made by me it covers all
 Commands to run this git in linux are as follows 
 
 1> Open terminal as root user 
+
+
+
 2> mkdir webscrap
+
+
 3> cd webscrap
+
+
+
 4> git clone https://github.com/nitishkhanna01/webScrap
+
+
 5> cd webScrap
+
+
 6> chmod +x Install.sh
+
+
 7> ./Install.sh or sh Install.sh
+
+
 8> python3 <filename>.py
 
 
