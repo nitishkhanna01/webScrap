@@ -43,9 +43,12 @@ except:
     pass
 time.sleep(5)
 try:
-    cross2=WebDriverWait(driver, 1).until(
-                EC.element_to_be_clickable((By.XPATH,"/html/body/div[1]/div/div[3]/div/div/div[1]/button")))
-    cross2.click()
+    cross2 = WebDriverWait(driver, 5).until(
+        EC.visibility_of_element_located((By.XPATH, "/html/body/div[1]/div/div[3]/div/div/div[1]/button")))
+    driver.execute_script("arguments[0].scrollIntoView(true);", cross2)
+    driver.execute_script("arguments[0].focus();", cross2)
+    driver.execute_script("arguments[0].click();", cross2)
+
 except:
     pass
 while True:
@@ -60,9 +63,12 @@ while True:
             cross5.click()
         except:
             try:
-                cross2=WebDriverWait(driver, 1).until(
-                                EC.element_to_be_clickable((By.XPATH,"/html/body/div[1]/div/div[3]/div/div/div[1]/button")))
-                cross2.click()
+                cross2 = WebDriverWait(driver, 5).until(
+                    EC.visibility_of_element_located((By.XPATH, "/html/body/div[1]/div/div[3]/div/div/div[1]/button")))
+                driver.execute_script("arguments[0].scrollIntoView(true);", cross2)
+                driver.execute_script("arguments[0].focus();", cross2)
+                driver.execute_script("arguments[0].click();", cross2)
+
             except:
                 pass
         time.sleep(2)
